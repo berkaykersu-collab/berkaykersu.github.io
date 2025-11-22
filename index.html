@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Berkay'ın İlk Web Sitesi</title>
+
+    <style>
+/* Açılış animasyonu */
+.fade-in {
+    animation: fadeIn 1.4s ease forwards;
+    opacity: 0;
+}
+
+/* Fade-in animasyonu */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sayfa genel tasarım */
+body {
+    background: #111;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding-top: 120px;
+    margin: 0;
+}
+
+/* Navbar Tasarımı */
+.navbar {
+    width: 100%;
+    background: #000000cc;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+.navbar a {
+    color: #00ff99;
+    margin: 0 20px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.navbar a:hover {
+    color: white;
+    text-shadow: 0px 0px 10px #00ff99;
+}
+
+/* Başlık – sade */
+h1 {
+    font-size: 40px;
+    color: #00ff99;
+}
+
+/* Paragraf – sade */
+p {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+/* Buton – daha hafif parlama */
+.kral {
+    margin-top: 40px;
+    padding: 15px 30px;
+    background: #00ff99;
+    color: #111;
+    font-size: 22px;
+    border-radius: 10px;
+    display: inline-block;
+    transition: 0.25s ease;
+    box-shadow: 0px 0px 6px #00ff99; /* DAHA YUMUŞAK */
+}
+
+/* Hover – hafif büyüme, hafif parlama */
+.kral:hover {
+    transform: scale(1.08);
+    background: #00cc77;
+    box-shadow: 0px 0px 12px #00ff99; /* DAHA HAFİF */
+}
+
+/* Tıklama efekti (ışık patlaması) */
+.kral:active {
+    transform: scale(0.92);
+    box-shadow: 0px 0px 20px #00ff99;
+}
+
+/* Işık patlama animasyonu */
+@keyframes clickFlash {
+    from {
+        box-shadow: 0 0 20px #00ff99;
+    }
+    to {
+        box-shadow: 0 0 0px #00ff99;
+    }
+}
+
+.kral.clicked {
+    animation: clickFlash 0.25s ease-out;
+}
+    </style>
+</head>
+
+<body class="fade-in">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkimda.html">Hakkımda</a>
+    </div>
+
+    <h1>Berkay'ın Web Sitesine Hoş Geldiniz</h1>
+    <p>Bu, Berkay Kersu'nun geliştirdiği ilk HTML sitesi!</p>
+
+    <br><br>
+
+    <a href="hakkimda.html" class="kral">Hakkımda Sayfasına Git →</a>
+
+    <div class="kral">Ben her zaman buradayım 😎🔥</div>
+
+    <!-- JavaScript – Tıklama efekti -->
+    <script>
+        const buttons = document.querySelectorAll('.kral');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.add('clicked');
+                setTimeout(() => {
+                    btn.classList.remove('clicked');
+                }, 250);
+            });
+        });
+    </script>
+
+</body>
+</html>
